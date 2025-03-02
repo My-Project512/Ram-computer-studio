@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ram Institute Computer Studies-information  Portal</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0b0c10;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.nasa.gov/sites/default/files/thumbnails/image/stsci-h-p2041a-f-1777x1777.png'); /* Space background image */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: #7B39B1;
+            text-align: center;
+            padding: 50px;
+            color: #66fcf1;
+            
+           
+            
+        }
+        header h1 {
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav {
+            text-align: center;
+            margin: 20px;
+        }
+        nav a {
+            color: #7B39B1;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            color: #66fcf1;
+            text-decoration: underline;
+        }
+        section {
+            padding: 3rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        a {text-decoration: none;
+
+        }
+        .rights{
+            text-align: center;
+        }
+        h2 {
+            color: #66fcf1;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 1.1rem;
+        }
+        .image-gallery img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .image-gallery img:hover {
+            transform: scale(1.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 0 auto;
+        }
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #45a29e;
+            color: white;
+            cursor: pointer;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .course-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-list li {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        .course-list li a {
+            color: #45a29e;
+            text-decoration: none;
+        }
+        .course-list li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles for Different Devices */
+        @media (max-width: 768px) { /* Tablets and smaller devices */
+            header h1 {
+                font-size: 2rem;
+            }
+            nav a {
+                font-size: 1rem;
+                margin: 0 10px;
+            }
+            section {
+                padding: 2rem;
+                margin: 10px;
+            }
+            form {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 576px) { /* Large phones and smaller */
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+                margin: 0 5px;
+            }
+            section {
+                padding: 1.5rem;
+            }
+            .image-gallery img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 425px) { /* Small phones like iPhone SE */
+            header h1 {
+                font-size: 1.5rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            nav a {
+                font-size: 0.8rem;
+                margin: 0 3px;
+            }
+            section {
+                padding: 1rem;
+                margin: 5px;
+            }
+            form {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 375px) { /* iPhone XR, Pixel 5 */
+            nav a {
+                font-size: 0.7rem;
+            }
+            .course-list li {
+                font-size: 1rem;
+            }
+            .image-gallery img {
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 320px) { /* iPhone 5/SE */
+            header h1 {
+                font-size: 1.2rem;
+            }
+            header p {
+                font-size: 0.8rem;
+            }
+            nav a {
+                font-size: 0.6rem;
+                margin: 0 2px;
+            }
+            section {
+                padding: 0.8rem;
+            }
+            .course-list li {
+                font-size: 0.9rem;
+            }
+            .image-gallery img {
+                max-width: 200px;
+            }
+        }
+        /* Course Fee Section Improvement */
+        .course-fees {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 3rem 0;
+        }
+
+        .course-fees .fee-card {
+            background-color: #1c2859;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .course-fees .fee-card:hover {
+            transform: scale(1.05);
+        }
+
+        .course-fees h3 {
+            color: #66fcf1;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .course-fees p {
+            font-size: 1.2rem;
+            color:  #fff;
+        }
+
+        .fee-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .course-fees .fee-card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .course-fees .fee-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+<marquee direction="right" height="100px" behavior="loop" onmouseover="stop();" scrollamount="20" onmouseout="start();">
+<h1>RAM INSTITUTE OF COMPUTER STUDES</h1>
+</marquee>
+   
+    <h1><marquee>Welcome to Rioce Computer Studies</marquee></h1>
+    <p>Explore the Universe of Knowledge</p>
+    
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="Admission.html">Admission</a>
+    <a href="Contact.html">Contact</a>
+    <a href="N.I.L.E.T.pdf">N.I.L.E.T</a>
+    <a href="Fees.html">Fees</a>
+</nav>
+
+<section id="home">
+<img src="Rioce-image.jpg" alt="ramji photo" style="width: 100px; height: 100px; position: ; border-radius: 10%;">
+    <h2>About Us</h2>
+    <p>Ram Computer Studio, located in Ajgain, offers hands-on training in computer skills. Managed by <strong>Ram Panday</strong>, we ensure a practical learning approach for students.</p>
+</section>
+
+<section id="courses">
+    <h2>Course Syllabus Download</h2>
+    <ol><h1>
+        <li><a href="CC.pdf" target="blank">Download CC Syllabus</a>
+        </li>
+        <li><a href="CCA.pdf" target="blank">Download CCA Syllabus</a>
+        </li>
+        <li><a href="DDTP.pdf" target="blank">Download DDTP Syllabus</a>
+        </li>
+        <li><a href="DFA.pdf" target="blank">Download DFA Syllabus</a>
+        </li>
+        <li><a href="DCA.pdf" target="blank">Download DCA Syllabus</a>
+        </li>
+        <li><a href="ADWD.pdf" target="blank">Download ADWD Syllabus</a>
+        </li>
+        <li><a href="CCC.pdf" target="blank">Download CCC Syllabus</a>
+        </li>
+        <li><a href="ADFA.pdf" target="blank">Download ADFA Syllabus</a>
+        </li>
+        <li><a href="O.LEVEL.pdf" target="blank">Download O Level Syllabus</a>
+        </li>
+    </h1>
+    </ol>
+</section>
+
+<section id="course-details">
+    <h2>Course Details</h2>
+    <div class="course-box">    
+    <section><b>
+        <h1>DFA - Diploma in Financial Accounting</h1>
+        <p>Learn about financial accounting principles, including Tally ERP 9 with GST, and manage accounts effectively.</p>
+        <h3>About Information</h3><h2>👇click here</h3>
+        <a href="DFA.html">DFA - Diploma in Financial Accounting</a>
+    </div>
+    </section>
+    <div class="course-box">
+    <section>
+        <h3>DCA - Diploma in Computer Applications</h3>
+        <p>Master essential computer skills, including MS Office, Internet, and computer fundamentals.</p>
+        <h3>About Information</h3><h2>👇click here</h2>
+        <a href="DCA.html">DCA - Diploma in Computer Applications</a>
+    </div>
+    </section>
+    <div class="course-box">
+    <section>
+        <h3>CCC - Course on Computer Concepts</h3>
+        <p>Gain proficiency in various computer applications, including Microsoft Office, LibreOffice, and more.</p>
+        <h3>About Information</h3><h2>👇click here</h2>
+        <a href="CCC.html">CCC - Course on Computer Concepts</a>
+    </div>
+    </section>
+    <div class="course-box">
+    <section>
+        <h3>Typing Learning - Learn Fast Typing Speed</h3>
+        <p>Improve your typing speed and accuracy with interactive typing lessons and practices.</p>
+        <h3>About Information</h3><h2>👇click here</h2>
+        <a href="TYPING.html">Typing - Learn Fast Typing Speed</a>
+    </div>
+    </section>
+    <div class="course-box">
+    <section>
+        <h3>O Level - Ordinary Level</h3>
+        <p>Enhance your technical skills with the O Level course, focusing on web designing, networking, and programming.</p>
+        <h3>About Information</h3><h2>👇click here</h2>
+     <a href="O.LEVEL.html">O.Level -
+        Ordinary Level</a>
+    </div>
+    </section>
+    <section>
+        <h3>ADFA - Advanced Diploma in Financial Accounting</h3>
+        <p>Enhance Financial Accounting  with the ADFA course, focusing on Financial Accounting Fundamentals,Advanced Tally with GST,Income Tax and Payroll Management .</p>
+        <h3>About Information</h3><h2>👇click here</h2>
+        <a href="ADFA.html">
+            <p>Advanced Diploma in Financial Accounting</p></a>
+    </b>
+    </div>
+    </section>
+</section>
+<section id="images" class="image-gallery">
+    <h2>Our Visual Journey</h2>
+    <div class="images">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg " alt="Image 4">
+        <img src="image5.jpg" alt="Image 5">
+    </div>
+</section>
+
+<section id="course-fees">
+    <h2>Course Fees</h2>
+    <div class="course-fees">
+        <div class="fee-card">
+            <img src="Desk-image.jpg" alt="DFA Image">
+            <h3>DFA</h3>
+            <p>₹7500</p>
+        </div>
+        <div class="fee-card">
+            <img src="Desk-image.jpg" alt="DCA Image">
+            <h3>DCA</h3>
+            <p>₹8500</p>
+        </div>
+        <div class="fee-card">
+            <img src="Desk-image.jpg" alt="CCC Image">
+            <h3>CCC</h3>
+            <p>₹8000</p>
+        </div>
+        <div class="fee-card">
+            <img src="Desk-image.jpg" alt="Master Excel">
+            <h3>Master Excel</h3>
+            <p>₹5000</p>
+        </div>
+        <div class="fee-card">
+            <img src="Desk-image.jpg" alt="O Level Image">
+            <h3>O Level</h3>
+            <p>₹15000</p>
+            
+        </div>
+    </div>
+    </section>    
+<section>
+<div class="rights">
+<p>&copy; 2024 Ram Institute Computer Studies. All rights reserved.</p>
+</div>
+    </section>
+    </body>
+    </html> 

@@ -1,0 +1,130 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Fee Submission</title>
+    <style src="style.css"></style>
+</head>
+<body>
+    <div class="container">
+        <h1><b><font color="Blue">Rioce computer studio</b></font color="Blue"><font color="#28a745"> Fee Submission</font color="#28a745"></h1>
+        <form>
+            <label for="student-name">Student Name:🚹</label>
+            <input type="text" id="student-name" placeholder="Enter student name" required>
+
+            <label for="student-id">Student ID:🆔</label>
+            <input type="number" id="student-id" placeholder="Enter student ID" required>
+
+            <label for="course">Select Course:</label>
+            <select id="course" onchange="showFee()">
+                <option value="" disabled selected>Select a course</option>
+                <option value="DCA">DCA</option>
+                <option value="DFA">DFA</option>
+                <option value="CCC">CCC</option>
+                <option value="Advance Excel">Advance Excel</option>
+                <option value="ADWD">ADWD</option>
+                <option value="O Level">O Level</option>  
+                <option value="Typing Course">Typing Course</option>   
+                <option value="Tally ERP">Tally ERP</option>                     
+            </select>        
+            <label for="fee">Course Fee:</label>
+            <input type="text" id="fee" readonly>
+
+            <button type="button" onclick="payNow()">Pay Now</button>
+        </form>
+
+        <div class="qr-code">
+            <p>Scan QR Code to Pay:</p>
+            <img src="QR Code.jpg" alt="QR Code">
+        </div>
+    </div>
+    
+</body>
+</html><style><style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0;
+            
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #28a745;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="number"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc ;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: red;
+        }
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 200px;
+        }
+    </style></style><script>
+        // Developer-defined course fee limits
+        const courseFees = {
+            "DCA": 7000,
+            "DFA": 8000,
+            "CCC": 8500,
+            "Advance Excel": 7500,
+            "ADWD": 95000,
+            "O Level": 15000,
+            "Typing Course": 4000,
+            "Tally ERP": 4000,
+        };
+        
+        // Function to display the course fee
+        function showFee() {
+            const courseSelect = document.getElementById('course');
+            const feeInput = document.getElementById('fee');
+            const selectedCourse = courseSelect.value;
+
+            if (courseFees[selectedCourse]) {
+                feeInput.value = `₹${courseFees[selectedCourse]}`;
+            } else {
+                feeInput.value = '';
+            }
+        }
+
+        // Pay Now function
+        function payNow() {
+            const studentName = document.getElementById('student-name').value;
+            const studentID = document.getElementById('student-id').value;
+            const course = document.getElementById('course').value;
+            const fee = document.getElementById('fee').value;
+
+            if (studentName && studentID && course && fee) {
+                alert(`Thank you, ${studentName} (ID: ${studentID})!\nYou have selected the course: ${course}\nTotal Fee: ${fee}\nProceed to payment.`);
+            } else {
+                alert('Please fill all the details before proceeding.');
+            }
+        }
+    </script>
+</script>
